@@ -1,0 +1,16 @@
+{
+  "name": "ue01_javascript",
+  "version": "0.0.1",
+  "description": "Erstes JavaScript Programm FIVU",
+  "main": "main.js",
+  "scripts": {
+  "build": "echo \" Hat net hingehaut\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "murlom14",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": { 
+    "typescript": "^3.1.1"
+  }
+}
