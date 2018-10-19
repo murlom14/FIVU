@@ -1,4 +1,9 @@
-import { Person } from './person';
+import { Server } from './server';
 
-const p = new Person('Lorenz', 'Muri', 2000);
-console.log(p.vorname, p.nachname, p.geburtsjahr);
+class Main {
+    public static main() {
+        const server = new Server(8080);
+        server.start();
+    }
+}
+Main.main();
