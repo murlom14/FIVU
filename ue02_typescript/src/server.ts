@@ -1,5 +1,6 @@
 import * as http from 'http'; // Node.js Modul
-import * as express from 'express';
+import * as express from 'express'; // Externes Modul (via npm installieren)
+import * as path from 'path'; // kommt schon von nodejs
 
 export class Server {
 
@@ -9,6 +10,7 @@ export class Server {
     constructor(port: number) {
         this._port = port;
         this._server = express();
+        this._server.get('/liste', (req, res, next) => this.handleGetListe(req, res, next));
     }
 
     public start() {
@@ -18,6 +20,14 @@ export class Server {
 
     public get port() {
         return this._port;
+    }
+
+    private handleGetListe(req: express.Request, res: express.Response, next: express.NextFunction) {
+        // res.send('Guten Abend, Herr Steiner!');
+        const filePath = path.join(__dirname, '..', 'assets', 'liste.html');
+        console.log(filePath);
+        res.sendFile(filePath);
+        res.end();
     }
 
 }
