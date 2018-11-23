@@ -1,6 +1,7 @@
 import * as http from 'http'; // Node.js Modul
 import * as express from 'express'; // Externes Modul (via npm installieren)
 import * as path from 'path'; // kommt schon von nodejs
+import * as bodyParser from 'body-parser';
 
 export class Server {
 
@@ -11,10 +12,11 @@ export class Server {
         const assetsPath = path.join(__dirname, '..', 'assets');
         this._port = port;
         this._server = express();
-        this._server.use('/public', express.static(assetsPath));
+        this._server.use('/', express.static(assetsPath));
+        this._server.use(bodyParser.json);
+        this._server.use(bodyParser.urlencoded);
+        this._server.post('/login.html', (req, res, next) => this.handlePostLogin(req, res, next));
         this._server.get('/liste', (req, res, next) => this.handleGetListe(req, res, next));
-
-        this._server.get('/image.png', (req, res, next) => this.sendImage(res));
     }
 
     public start() {
@@ -33,9 +35,8 @@ export class Server {
         res.sendFile(filePath);
     }
 
-    private sendImage(res: express.Response) {
-        const filePath = path.join(__dirname, '..', 'assets', 'image.png');
-        res.sendFile(filePath);
+    private handlePostLogin(req: express.Request, res: express.Response, next: express.NextFunction) {
+        debugger;
+        next;
     }
-
 }
