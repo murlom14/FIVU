@@ -1,9 +1,13 @@
+
 import { Server } from './server';
 
+
 class Main {
-    public static main() {
-        const server = new Server(8080);
+
+    public static main () {
+        const server = new Server(4711);
         server.start();
     }
 }
+
 Main.main();
