@@ -3,10 +3,11 @@
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="navbar-collapse" [ngbCollapse]="isCollapsed">
+    <!--<div class="navbar-collapse" [ngbCollapse]="isCollapsed">-->
+    <div class="navbar-collapse" >
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" routerLink="/trees">Bäume</a>
+            <a class="nav-link" routerLink="/trees" routerLinkActive="active">Bäume</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/cars" routerLinkActive="active">Autos</a>
